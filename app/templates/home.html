@@ -1,31 +1,6 @@
-{% load static %}
+{%extends 'base_layout.html'%}
 
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
-    <link rel="stylesheet" href="{% static 'style.css' %}" />
-  </head>
-  <body>
-    <header>
-      <nav class="navbar">
-        <div class="navbar-start">
-          <div class="navbar-logo">
-            <img
-              src="https://msk.top-academy.ru/dist/images/logo/step_logo_rus.svg"
-              alt=""
-            />
-          </div>
-        </div>
-        <div class="navbar-menu">
-          <div class="navbar-item">
-            <button class="button">Создать пост</button>
-          </div>
-        </div>
-      </nav>
-    </header>
-    <main>
+{%block content%}
       <div class="container">
         {% for post in posts %}
         <div class="post">
@@ -39,7 +14,7 @@
           </div>
         </div>
         {% endfor %}
+        <a href="{% url 'app:new_temp' %}" class="post">Ёлка</a>
       </div>
-    </main>
-  </body>
-</html>
+      {%endblock%}
+
